@@ -1044,3 +1044,25 @@ html.is-loading, html.is-loading body { overflow: hidden; }
 .loader-count { font-family: var(--serif); font-size: 15px; letter-spacing: .12em; font-variant-numeric: tabular-nums; opacity: .7; }
 
 html.is-loading .cursor { opacity: 0; }
+
+/* chat assistant (rule-based) */
+.cb { position: fixed; right: 20px; bottom: 20px; z-index: 90; font-family: var(--sans); }
+.cb-fab { width: 58px; height: 58px; border-radius: 50%; border: 0; background: var(--ink); color: var(--paper); font-size: 26px; line-height: 1; cursor: pointer; box-shadow: var(--shadow-md); display: grid; place-items: center; }
+.cb-fab:hover { background: var(--terra); }
+.cb-panel { position: absolute; right: 0; bottom: 72px; width: min(370px, calc(100vw - 32px)); height: min(540px, calc(100vh - 140px)); background: var(--paper); color: var(--ink); border-radius: 22px; box-shadow: var(--shadow-lg); display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); }
+.cb-head { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; background: var(--ink); color: var(--paper); }
+.cb-head strong { display: block; font-size: 15px; }
+.cb-head small { opacity: .7; font-size: 12px; }
+.cb-head button { background: none; border: 0; color: inherit; font-size: 26px; cursor: pointer; line-height: 1; }
+.cb-body { flex: 1; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.cb-msg { max-width: 86%; padding: 10px 13px; border-radius: 16px; font-size: 14px; line-height: 1.45; white-space: pre-wrap; }
+.cb-msg.bot { background: var(--sand); align-self: flex-start; border-bottom-left-radius: 4px; }
+.cb-msg.me { background: var(--ink); color: var(--paper); align-self: flex-end; border-bottom-right-radius: 4px; }
+.cb-msg a { display: block; margin-top: 8px; color: var(--terra); font-weight: 600; text-decoration: none; }
+.cb-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.cb-chips button { border: 1.5px solid var(--ink); background: transparent; color: var(--ink); border-radius: 999px; padding: 7px 12px; font-size: 13px; cursor: pointer; font-family: inherit; }
+.cb-chips button:hover { background: var(--gold); border-color: var(--gold); }
+.cb-form { display: flex; gap: 8px; padding: 10px; border-top: 1px solid var(--line); }
+.cb-form input { flex: 1; border: 1.5px solid var(--line); border-radius: 999px; padding: 10px 14px; font-size: 14px; background: #fff; font-family: inherit; }
+.cb-form button { border: 0; border-radius: 999px; background: var(--gold); color: var(--ink); font-weight: 600; padding: 0 16px; cursor: pointer; font-family: inherit; }
+@media (max-width: 900px) { .cb { right: 14px; bottom: 76px; } .cb-fab { width: 52px; height: 52px; } .cb-panel { bottom: 64px; height: min(520px, calc(100vh - 190px)); } }

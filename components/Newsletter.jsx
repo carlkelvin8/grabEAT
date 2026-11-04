@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { dict } from '@/lib/dict'
 import { track } from '@/lib/track'
+import { sendLead } from '@/lib/sendLead'
 
 export default function Newsletter({ locale }) {
   const t = dict[locale].newsletter
@@ -11,8 +12,7 @@ export default function Newsletter({ locale }) {
     const fd = new FormData(e.currentTarget)
     setState('sending')
     try {
-      const res = await fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ kind: 'newsletter', locale, email: fd.get('email'), consent: true, marketingConsent: fd.get('marketingConsent') === 'on' }) })
-      if (!res.ok) throw new Error()
+      await sendLead({ kind: 'newsletter', locale, email: fd.get('email'), consent: true, marketingConsent: fd.get('marketingConsent') === 'on' })
       track('newsletter_signup')
       setState('done'); e.currentTarget.reset()
     } catch { setState('error') }

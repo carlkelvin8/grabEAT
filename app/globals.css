@@ -1066,3 +1066,8 @@ html.is-loading .cursor { opacity: 0; }
 .cb-form input { flex: 1; border: 1.5px solid var(--line); border-radius: 999px; padding: 10px 14px; font-size: 14px; background: #fff; font-family: inherit; }
 .cb-form button { border: 0; border-radius: 999px; background: var(--gold); color: var(--ink); font-weight: 600; padding: 0 16px; cursor: pointer; font-family: inherit; }
 @media (max-width: 900px) { .cb { right: 14px; bottom: 76px; } .cb-fab { width: 52px; height: 52px; } .cb-panel { bottom: 64px; height: min(520px, calc(100vh - 190px)); } }
+
+/* Location notes can be longer than a time range. */
+.city li { gap: 16px; flex-wrap: wrap; }
+.city .chip, .spot-area .chip, .finder-actions .chip { max-width: 100%; text-transform: none; }
+.finder-list li.on .finder-actions { max-height: 180px; flex-wrap: wrap; }

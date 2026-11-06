@@ -20,8 +20,8 @@ const find = (slug) => LOCATIONS.find((l) => l.slug === slug)
 function copy(locale, loc) {
   const area = loc.area[locale]
   return locale === 'no'
-    ? { title: `grabEAT ${loc.name}, ${area} | Varm mat 24/7`, desc: `grabEAT-kiosken ved ${loc.name} i ${area} er åpen 24/7. Se kart, veibeskrivelse og meny for varm, sunn mat.` }
-    : { title: `grabEAT ${loc.name}, ${area} | Hot food 24/7`, desc: `The grabEAT kiosk at ${loc.name} in ${area} is open 24/7. See the map, directions and menu for hot, healthy food.` }
+    ? { title: `grabEAT ${loc.name}, ${area} | Varm mat`, desc: `grabEAT-kiosken ved ${loc.name} i ${area} – ${loc.hours}. Se kart og meny.` }
+    : { title: `grabEAT ${loc.name}, ${area} | Hot food`, desc: `The grabEAT kiosk at ${loc.name} in ${area} – ${loc.hours}. See the map and menu.` }
 }
 
 export async function generateMetadata({ params }) {
@@ -39,22 +39,22 @@ export default async function KioskPage({ params }) {
   const area = loc.area[locale]
   // Short FAQ built only from known facts. Client supplies the final Q&A (TODO).
   const faq = locale === 'no'
-    ? [[`Når er kiosken ved ${loc.name} åpen?`, 'Kiosken er åpen 24/7.'], ['Hva selger kiosken?', 'Varme og sunne måltider fra grabEAT.']]
-    : [[`When is the ${loc.name} kiosk open?`, 'The kiosk is open 24/7.'], ['What does the kiosk sell?', 'Hot, healthy meals from grabEAT.']]
+    ? [[`Når er kiosken ved ${loc.name} åpen?`, loc.hours], ['Hva selger kiosken?', 'Varme og sunne måltider fra grabEAT.']]
+    : [[`When is the ${loc.name} kiosk open?`, loc.hours], ['What does the kiosk sell?', 'Hot, healthy meals from grabEAT.']]
   const crumbs = breadcrumbs([[d.nav.locations, path(locale, 'locations')], [loc.name, path(locale, 'locations', slug)]])
 
   return (
     <Shell locale={locale} pageKey="locations" sub={slug} schema={[kiosk(locale, loc), faqPage(faq), crumbs]}>
       <PageCover
-        eyebrow={`${area} · ${l.open}`} rows={['grabEAT', `*${loc.name}.*`]} live={l.open}
-        lead={locale === 'no' ? `Varme, sunne måltider ved ${loc.name} i ${area}, hele døgnet.` : `Hot, healthy meals at ${loc.name} in ${area}, around the clock.`}
+        eyebrow={area} rows={['grabEAT', `*${loc.name}.*`]} live={loc.operating ? loc.hours : undefined}
+        lead={locale === 'no' ? `Varme, sunne måltider ved ${loc.name} i ${area}. ${loc.hours}` : `Hot, healthy meals at ${loc.name} in ${area}. ${loc.hours}`}
         actions={<a className="btn gold" href={mapsDirections(loc.mapsQuery)} target="_blank" rel="noopener noreferrer" data-track="find_kiosk" data-magnetic>{l.directions}<span className="arrow" aria-hidden="true"><i>↗</i></span></a>}
         art={<div className="cover-kiosk-art"><Image src="/images/cutouts/grabeat-kiosk-pod.png" alt={d.home.kioskAlt} width={534} height={780} priority sizes="(max-width: 900px) 60vw, 26vw" /></div>}
       />
       <section className="section loc-info">
         <div className="wrap loc-detail">
           <dl className="info-list" data-reveal="stagger">
-            <div><dt>{l.open}</dt><dd>00:00 – 23:59</dd></div>
+            <div><dt>{l.hours}</dt><dd>{loc.hours}</dd></div>
             <div><dt>{locale === 'no' ? 'By' : 'City'}</dt><dd>{area}</dd></div>
             {loc.address && <div><dt>{l.address}</dt><dd>{loc.address}</dd></div>}
             {loc.howToFind && <div><dt>{l.howToFind}</dt><dd>{loc.howToFind[locale]}</dd></div>}

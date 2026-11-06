@@ -29,13 +29,13 @@ const T = {
 
 const answers = (locale) => {
   const no = locale === 'no'
-  const places = LOCATIONS.map((l) => `${l.name} (${l.area[locale]})`).join(', ')
+  const places = LOCATIONS.map((l) => `${l.name}: ${l.hours}`).join('; ')
   return [
     { k: ['kiosk', 'kiosker', 'lokasjon', 'lokasjoner', 'hvor', 'finne', 'finn', 'sted', 'where', 'find', 'location', 'locations', 'near', 'forum', 'kokstad', 'voss', 'kvale', 'tesla', 'gulating', 'lagmannsrett', 'vestlandshallen', 'bergen'],
-      a: no ? `Vi har fem kiosker i Bergen og på Voss: ${places}. Alle er åpne 24/7. Tesla-kiosken er kun for Tesla-ansatte.` : `We have five kiosks in Bergen and Voss: ${places}. All are open 24/7. The Tesla kiosk is for Tesla employees only.`,
+      a: no ? `Vi har fem kiosker i Bergen og på Voss: ${places}.` : `We have five kiosks in Bergen and Voss: ${places}.`,
       link: ['locations', no ? 'Se alle lokasjoner' : 'See all locations'] },
     { k: ['apen', 'apent', 'apne', 'apning', 'apningstid', 'apningstider', 'stengt', 'natt', 'open', 'hours', 'opening', 'closed', 'night', 'when', 'nar', '24'],
-      a: no ? 'Alle grabEAT-kioskene er åpne 24/7, hele døgnet.' : 'All grabEAT kiosks are open 24/7, around the clock.' },
+      a: places },
     { k: ['pris', 'priser', 'koster', 'kost', 'kr', 'nok', 'betal', 'betale', 'price', 'prices', 'cost', 'much', 'pay', 'payment', 'card', 'kort'],
       a: no ? `Rettene koster fra ${MIN} til ${MAX} kr. Du betaler trygt og kontaktløst i kiosken.` : `Meals cost from ${MIN} to ${MAX} NOK. You pay safely and contactlessly at the kiosk.`,
       link: ['menu', no ? 'Se menyen' : 'See the menu'] },

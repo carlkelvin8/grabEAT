@@ -37,7 +37,7 @@ export default function SpotList({ items, open, view }) {
             <Link href={it.href} data-cursor={view}>
               <span className="spot-i">{String(i + 1).padStart(2, '0')}</span>
               <span className="spot-name">{it.name}</span>
-              <span className="spot-area"><span className="chip live">{open}</span> &nbsp;{it.area}</span>
+              <span className="spot-area"><span className={`chip${it.operating ? ' live' : ''}`}>{it.hours}</span> &nbsp;{it.area}</span>
               <span className="spot-arrow" aria-hidden="true">→</span>
             </Link>
           </li>

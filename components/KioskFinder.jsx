@@ -21,7 +21,7 @@ export default function KioskFinder({ items, labels }) {
               <span className="f-area">{it.area}</span>
             </button>
             <div className="finder-actions">
-              <span className="chip live">{labels.open}</span>
+              <span className={`chip${it.operating ? ' live' : ''}`}>{it.hours}</span>
               <Link className="u-link" href={it.href}>{labels.details} →</Link>
               <a className="u-link" href={it.directions} target="_blank" rel="noopener noreferrer" data-track="find_kiosk">{labels.directions} ↗</a>
             </div>

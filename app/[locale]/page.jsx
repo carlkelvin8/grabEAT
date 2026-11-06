@@ -164,7 +164,7 @@ export default async function Home({ params }) {
             <p className="lead" data-reveal="up">{h.spots.lead}</p>
           </div>
           <SpotList
-            items={LOCATIONS.map((l) => ({ href: path(locale, 'locations', l.slug), name: l.name, area: l.area[locale], photo: l.photo }))}
+            items={LOCATIONS.map((l) => ({ href: path(locale, 'locations', l.slug), name: l.name, area: l.area[locale], hours: l.hours, operating: l.operating, photo: l.photo }))}
             open={d.locations.open} view={h.spots.view}
           />
         </div>

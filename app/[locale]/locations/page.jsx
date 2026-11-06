@@ -16,7 +16,7 @@ export default async function Locations({ params }) {
   const { locale } = await params
   const d = dict[locale]; const l = d.locations; const pg = d.pages.locations
   const items = LOCATIONS.map((loc) => ({
-    slug: loc.slug, name: loc.name, area: loc.area[locale], href: path(locale, 'locations', loc.slug),
+    slug: loc.slug, name: loc.name, hours: loc.hours, operating: loc.operating, area: loc.area[locale], href: path(locale, 'locations', loc.slug),
     directions: mapsDirections(loc.mapsQuery), embed: mapsEmbed(loc.mapsQuery),
   }))
   const cities = [...new Set(LOCATIONS.map((x) => x.area[locale]))].map((c) => [c, LOCATIONS.filter((x) => x.area[locale] === c)])
@@ -24,7 +24,7 @@ export default async function Locations({ params }) {
   return (
     <Shell locale={locale} pageKey="locations">
       <PageCover
-        eyebrow={pg.eyebrow} rows={pg.title} lead={pg.lead} live={l.open}
+        eyebrow={pg.eyebrow} rows={pg.title} lead={pg.lead}
         art={<div className="cover-kiosk-art"><Image src="/images/cutouts/grabeat-kiosk-pod.png" alt={d.home.kioskAlt} width={534} height={780} priority sizes="(max-width: 900px) 60vw, 26vw" /></div>}
       />
 
@@ -41,7 +41,7 @@ export default async function Locations({ params }) {
             {cities.map(([city, locs]) => (
               <div className="city" key={city}>
                 <div className="city-head"><h3>{city}</h3><b>{locs.length}</b></div>
-                <ul>{locs.map((x) => <li key={x.slug}><Link className="u-link" href={path(locale, 'locations', x.slug)}>{x.name}</Link><span className="chip live">24/7</span></li>)}</ul>
+                <ul>{locs.map((x) => <li key={x.slug}><Link className="u-link" href={path(locale, 'locations', x.slug)}>{x.name}</Link><span className={`chip${x.operating ? ' live' : ''}`}>{x.hours}</span></li>)}</ul>
               </div>
             ))}
           </div>

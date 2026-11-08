@@ -77,7 +77,7 @@ export default function HomeMotion() {
           .to('.cover-veil', { opacity: 1, duration: 0.22, ease: 'power2.in' }, 0.62)
           .set('.cover-kiosk', { opacity: 0 }, 0.86)
           // ...and out into the morning of the day story
-          .to('.cover-veil', { backgroundColor: '#f3c9a3', duration: 0.18 }, 0.86)
+          .to('.cover-veil', { backgroundColor: '#ffffff', duration: 0.18 }, 0.86)
       } else {
         fly.to('.cover-kiosk', { scale: 1.12, yPercent: 6, ease: 'none' }, 0)
       }
@@ -100,7 +100,7 @@ export default function HomeMotion() {
       }
 
       /* ---------- comparison: grabEAT column glows in ---------- */
-      gsap.from('.vs-us', { backgroundColor: 'rgba(27,22,19,0)', color: '#1b1613', stagger: 0.08, duration: 1, scrollTrigger: { trigger: '.vs-table', start: 'top 70%', once: true } })
+      gsap.from('.vs-us', { opacity: 0, stagger: 0.08, duration: 1, scrollTrigger: { trigger: '.vs-table', start: 'top 70%', once: true } })
 
       /* ---------- business: kiosk rises out of the dark ---------- */
       gsap.from('.showcase-stage', { y: 120, rotationX: 18, scale: 0.9, transformPerspective: 1400, ease: 'none', scrollTrigger: { trigger: '.biz', start: 'top bottom', end: 'center center', scrub: true } })

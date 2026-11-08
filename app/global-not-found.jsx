@@ -3,6 +3,7 @@ import NotFoundView from '@/components/NotFoundView'
 import SmoothScroll from '@/components/SmoothScroll'
 import Cursor from '@/components/Cursor'
 import './globals.css'
+import './branding.css'
 
 // Our root layout lives in app/[locale], so unmatched URLs need a global 404 (next.config: experimental.globalNotFound).
 const serif = Fraunces({ subsets: ['latin'], axes: ['opsz', 'SOFT', 'WONK'], style: ['normal', 'italic'], variable: '--font-serif', display: 'swap' })

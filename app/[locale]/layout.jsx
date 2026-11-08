@@ -8,6 +8,7 @@ import SmoothScroll from '@/components/SmoothScroll'
 import Cursor from '@/components/Cursor'
 import Loader from '@/components/Loader'
 import '../globals.css'
+import '../branding.css'
 
 const serif = Fraunces({ subsets: ['latin'], axes: ['opsz', 'SOFT', 'WONK'], style: ['normal', 'italic'], variable: '--font-serif', display: 'swap' })
 const sans = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swap' })
@@ -15,7 +16,7 @@ const sans = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swap
 export const dynamicParams = false
 export function generateStaticParams() { return LOCALES.map((locale) => ({ locale })) }
 
-export const viewport = { width: 'device-width', initialScale: 1, themeColor: '#fbf5ec' }
+export const viewport = { width: 'device-width', initialScale: 1, themeColor: '#ffffff' }
 
 export const metadata = {
   metadataBase: new URL(SITE.url),

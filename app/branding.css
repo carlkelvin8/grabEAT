@@ -1,0 +1,133 @@
+/* Shared by Norwegian, English and 404 pages. Colors sampled from the
+   opaque fills of public/images/grabeat-logo.png: dark leaf and main wordmark.
+   Existing Fraunces / Inter fonts remain until licensed Cocomat Pro is supplied. */
+:root {
+  --brand-green: #327319;
+  --brand-orange: #fd3601;
+  --brand-orange-hover: #f53601;
+  --text: #3d3d3d;
+  --button-text: #181818;
+  --paper: #ffffff;
+  --paper-2: #ffffff;
+  --sand: #ffffff;
+  --ink: var(--text);
+  --ink-2: var(--text);
+  --brick: var(--brand-green);
+  --terra: var(--text);
+  --gold: var(--brand-orange);
+  --gold-2: var(--brand-orange);
+  --leaf: var(--brand-green);
+  --line: rgba(61, 61, 61, .16);
+  --line-light: var(--line);
+  --shadow-lg: 0 20px 50px -28px rgba(0, 0, 0, .22);
+  --shadow-md: 0 12px 30px -20px rgba(0, 0, 0, .2);
+}
+
+input, select, textarea { color: var(--text); }
+body::after { display: none; }
+
+/* White surfaces include the former dark sections and responsive menus.
+   Images, kiosk artwork, sizes and animation geometry stay intact. */
+.cover, .story, .biz, .footer, .mobile-menu, .dish, .dish.cta-card,
+.vs-us, .cities, .mission, .needs-card, .how-strip, .post-end, .jnews,
+.ss, .cookie, .cb-head, .cb-msg.bot, .cb-msg.me,
+.day, .day-head, .day-ch, .day-ch.ch-0, .day-ch.ch-1,
+.day-ch.ch-2, .day-ch.ch-3, .sky-0, .sky-1, .sky-2, .sky-3,
+.jempty-issue li:nth-child(1), .jempty-issue li:nth-child(2) {
+  background: var(--paper);
+  color: var(--text);
+}
+.dish { border: 1px solid var(--line); }
+.cookie, .cb-msg.bot, .cb-msg.me { border: 1px solid var(--line); }
+.cover-light, .cover-beams, .cover-beams i, .pcover-glow, .ft-glow, .loader-glow,
+.jmast::before, .cover-kiosk-art::before, .pcover-lg .cover-kiosk-art::before,
+.kiosk-glow, .spotlight { background: none; }
+.cover-veil { background: var(--paper); }
+.jcard-media, .jcard-type, .tags li, .city .chip { background: var(--paper); color: var(--text); }
+.cat-food, .cat-kiosks, .cat-news { --cat: var(--text); --cat-bg: var(--paper); }
+.nav, .nav.on-dark, .nav.scrolled, .nav.on-dark.scrolled {
+  background: var(--paper);
+  color: var(--text);
+}
+.nav.on-dark .logo-img, .ft-logo, .loader-logo { filter: none; opacity: 1; }
+.nav.on-dark .lang { box-shadow: inset 0 0 0 1.5px var(--line); }
+.menu-btn { background: var(--paper); color: var(--text); box-shadow: inset 0 0 0 1px var(--line); }
+.mobile-menu nav a, .nav-links, .lang, .eyebrow,
+.city .chip, .dish .price, .meal-price, .menu-rows .price,
+.ch-place, .ch-v, .jcard-cat, .cb-msg a { color: var(--text); }
+/* Override the three existing inline accent labels without changing content. */
+.eyebrow[style] { color: var(--text) !important; }
+
+h1, h2, h3, h4, h5, h6, .display, .ft-statement,
+.spot-name, .f-name, .news-title, .city-head b, .biz-steps b,
+.needs-card li, .hotspot-tip b, .vs-h, .acc-q {
+  color: var(--brand-green);
+}
+h1 em, h2 em, h3 em, h4 em, h5 em, h6 em, .display em,
+.ft-statement em, .cover-title em, .biz-copy h2 em, .jnews h2 em,
+.day-head h2 em, .jtopic-list h3, .vs-h.vs-us,
+.spot a:hover .spot-name, .finder-list li.on .f-name, .ch-v:hover {
+  color: var(--brand-green);
+}
+.steps-row .n, .how-strip .steps-row .n, .biz-steps li::before,
+.point-list span, .ss-num, .ss-progress b, .orbit-core b { color: var(--text); }
+
+/* One primary action treatment, including legacy inner-page buttons. */
+.btn, .btn.gold, .btn.light, .pill, .pill.alt,
+.cb-fab, .cb-form button, .news-row button {
+  --bg: var(--brand-orange);
+  --fg: var(--button-text);
+  --dot: var(--paper);
+  background: var(--brand-orange);
+  color: var(--button-text);
+  transition: background-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.btn::before, .pill::before { display: none; }
+.btn:hover, .btn.gold:hover, .btn.light:hover, .pill:hover, .pill.alt:hover,
+.cb-fab:hover, .cb-form button:hover, .news-row button:hover {
+  background: var(--brand-orange-hover);
+  color: var(--button-text);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
+}
+.btn .arrow, .btn.gold .arrow, .btn:hover .arrow,
+.btn.gold:hover .arrow { background: var(--paper); color: var(--button-text); }
+.btn.ghost, .pill.ghost {
+  background: var(--paper);
+  color: var(--text);
+  box-shadow: inset 0 0 0 1.5px var(--line);
+}
+.btn.ghost:hover, .pill.ghost:hover { color: var(--brand-green); box-shadow: inset 0 0 0 1.5px var(--brand-green); }
+.news-row button { border-radius: 50%; min-width: 44px; min-height: 44px; }
+.chips button.on, .topic-chips button.on {
+  background: var(--brand-orange);
+  color: var(--button-text);
+}
+.share button:hover, .copy-btn:hover, .ch-go:hover, .other-list a:hover,
+.spot a:hover .spot-arrow { background: var(--paper); color: var(--brand-green); }
+.tags li, .city .chip { box-shadow: inset 0 0 0 1px var(--line); }
+.hotspot { background: var(--brand-orange); color: var(--button-text); }
+.hotspot:hover { background: var(--brand-orange-hover); }
+
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--brand-green);
+  outline-offset: 4px;
+}
+.field input:focus, .field textarea:focus {
+  border-color: var(--brand-green);
+  box-shadow: 0 0 0 3px rgba(50, 115, 25, .12);
+}
+/* Keep long text readable rather than blending grey text into white. */
+.lead, .acc-a p, .day-ch p, .steps-row p, .step p,
+.jcard p, .legal p, .legal-body p, .cookie p,
+.ft-h, .copy, .day-hint, .showcase-note, .timer-read small,
+.supplier-list span, .menu-group-head span, .jcard small, .legal-n,
+.dish-top, .ch-time, .spot-area, .meal-sup, .ch-k, .info-list dt,
+.vs-k, .jcard-meta, .f-area, .pcover-meta dd, .cover-facts dd {
+  opacity: 1 !important;
+}
+@media (max-width: 899px) {
+  .sticky-bar { background: var(--paper); border-top: 1px solid var(--line); }
+  .sticky-bar a { background: var(--brand-orange); color: var(--button-text); }
+  .sticky-bar a:last-child { background: var(--paper); color: var(--text); box-shadow: inset 0 0 0 1px var(--line); }
+  .sticky-bar a:first-child:hover { background: var(--brand-orange-hover); }
+}

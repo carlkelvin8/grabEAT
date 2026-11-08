@@ -1,7 +1,9 @@
-# Unpublished branding preview
+# Approved branding release
 
-Branch: `codex/logo-brand-refresh`. These changes are local; nothing has been
-uploaded to WordPress, deployed, or published.
+The reviewed design from `codex/logo-brand-refresh` was merged into `main`
+at commit `73fc33b` and published on 8 November 2026 with user approval.
+WordPress confirmed the grabEAT Next static-files package update from 1.7 to 1.8.
+Live site: https://grabeat.no/.
 
 ## Design
 
@@ -29,9 +31,15 @@ This preview is available only on the local computer.
 ## Publication
 
 The WordPress site embeds a static export; Astra settings do not style its
-contents. Follow `docs/WORDPRESS-DEPLOY.md` only after explicit approval.
-Replacing the static-files plugin changes the live site immediately and is
-not an unpublished WordPress draft. No plugin upload or replacement was done.
+contents. The existing `scripts/build-wordpress.sh` workflow built version 1.8,
+which was uploaded through the approved Chrome profile and replaced the
+existing package. The static-files plugin remains inactive as required by
+the integration. Future replacements require approval because they change
+the live site immediately.
+
+The previous 1.7 package is retained locally at
+`dist/grabeat-next-rollback-1.7.zip`. The deployed 1.8 ZIP SHA-256 is
+`250d122d719885e7df931dd2ebe341124a0df5d920e190072b6a06e1bae7784f`.
 
 ## Validation
 
@@ -43,3 +51,9 @@ not an unpublished WordPress draft. No plugin upload or replacement was done.
 - Internal link crawl: 34 URLs, no broken links or redirect-dependent links.
 - Forms were not submitted; third-party analytics and maps were blocked in
   automated checks. This validates the local site, not external services.
+- After publication, 58 live HTML and stylesheet files matched the deployment
+  archive byte for byte, without cache-busting query parameters.
+- The live WordPress iframe integration passed 24 page checks at desktop,
+  tablet, and mobile widths, plus navigation, primary hover, FAQ, menu-filter,
+  and kiosk-selection checks. No JavaScript page errors were observed.
+  Existing Inter body fonts were confirmed. No server cache purge was needed.
